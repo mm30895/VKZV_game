@@ -33,19 +33,21 @@
 flowchart TD
   A[Player] -->|Connects Wallet| B[Game Server]
   B --> |Sends Bet| C[Smart Contract]
-  C --> |Handles Bet & Determines Outcome| D[Game Server]
-  D --> |Displays Result| A
+  C --> |Handles Bet & Determines Outcome| B[Game Server]
+  B --> |Displays Result| A[Player]
   C --> |Updates Jackpot| E[Smart Contract Jackpot]
   C --> |Processes Payout| F[Player's Wallet]
+  E --> |Prosess Jackpot payout| F[Player's Wallet]
+  E --> |Handles Jackpot| B[Game Server]
 ```
 # Actors
--- Player: Connects their wallet, places bets, and interacts with the game.
--- Smart Contract: Executes the core game logic, including win/loss determination and jackpot management.
--- Crypto Wallet (MetaMask): Facilitates player transactions (placing bets, receiving payouts).
--- Game Server: Handles the game interface and communicates with the smart contract backend.
+- **Player**: Connects their wallet, places bets, and interacts with the game.
+- **Smart Contract**: Executes the core game logic, including win/loss determination and jackpot management.
+- **Crypto Wallet (MetaMask)**: Facilitates player transactions (placing bets, receiving payouts).
+- **Game Server**: Handles the game interface and communicates with the smart contract backend.
 ## Usage
--- Connect Wallet: Click "Connect Wallet" on the game interface and authorize MetaMask.
--- Place a Bet: Enter the bet amount and click "Spin".
--- View Results: The outcome of the spin is displayed, and any winnings are automatically transferred to your wallet.
--- Check Jackpot: The current jackpot amount is displayed on the game interface.
+- **Connect Wallet**: Click "Connect Wallet" on the game interface and authorize MetaMask.
+- **Place a Bet**: Enter the bet amount and click "Spin".
+- **View Results**: The outcome of the spin is displayed, and any winnings are automatically transferred to your wallet.
+- **Check Jackpot**: The current jackpot amount is displayed on the game interface.
 
